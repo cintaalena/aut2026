@@ -56,12 +56,13 @@ jobs:
       - name: Run test
         run: python tests/hello_aut.py ${{ env.URL }}/index.php
 
-      - name: 'Upload Artifact'
+      - name: Upload Artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: Screenshot
-          path: Screenshot.png
-
+          path: screenshot.png
+    
       - name: Stop docker
         run: |
           docker stop docker-apache
