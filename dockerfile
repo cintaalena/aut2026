@@ -1,8 +1,9 @@
 FROM php:8.0-apache
 WORKDIR /var/www/html
 
-COPY . /.
-RUN rm -rf .git/*
-RUN rm -rf .github/*
+COPY . /var/www/html/
+
+RUN rm -rf /var/www/html/.git
+RUN rm -rf /var/www/html/.github
 
 EXPOSE 80
